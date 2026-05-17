@@ -5,7 +5,7 @@ import { useNavigate } from "react-router"
 const StudentData = () => {
   const [student, setStudent] = useState([])
   const navigate = useNavigate()
-  
+
   const API = "https://fullstack-crud-auth.onrender.com"
   useEffect(() => {
     const main = async () => {
