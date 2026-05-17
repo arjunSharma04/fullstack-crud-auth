@@ -7,10 +7,12 @@ const DelStudent = () => {
   const[name, setName]=useState("")
   const[city, setCity]=useState("")
 
+  const API = "https://fullstack-crud-auth.onrender.com"
+
   // Fetch Student Detail.
   useEffect(()=>{
     const main= async  ()=> { 
-      let res= await fetch(`http://127.0.0.1:5000/getStudent/${id}`)
+      let res= await fetch(`${API}/getStudent/${id}`)
       let data= await res.json()
       setName(data["name"])
       setCity(data["city"])
@@ -21,7 +23,7 @@ const DelStudent = () => {
   //   Delete Student.
   const del= async (e)=> {
     e.preventDefault()
-    let res= await fetch(`http://127.0.0.1:5000/del/${id}`, { 
+    let res= await fetch(`${API}/del/${id}`, { 
       method : "DELETE",
       headers : {
         "Content-Type" : "application/json",

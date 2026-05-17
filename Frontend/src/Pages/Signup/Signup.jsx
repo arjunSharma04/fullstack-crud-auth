@@ -7,9 +7,11 @@ const Signup = () => {
   const [user_name, setuserName] = useState('username_1')
   const [password, setPassword] = useState('password')
 
+  const API = "https://fullstack-crud-auth.onrender.com"
+
   let signupUser = async (e) => {
     e.preventDefault()
-    let res = await fetch("http://127.0.0.1:5000/signup", {
+    let res = await fetch(`${API}/signup`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user_name, password })

@@ -7,11 +7,12 @@ const AddStudent = () => {
   const[id, setId]=useState(101)
   const[name, setName]=useState("Name")
   const[city, setCity]=useState("City")
-
+  
+  const API = "https://fullstack-crud-auth.onrender.com"
 
  const  addStudentApi= async (e)=> { 
   e.preventDefault()
-     let res= await fetch("http://127.0.0.1:5000/add", {
+     let res= await fetch(`${API}/add`, {
 
       method : "POST",
       headers : { 

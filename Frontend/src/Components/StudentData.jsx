@@ -5,10 +5,11 @@ import { useNavigate } from "react-router"
 const StudentData = () => {
   const [student, setStudent] = useState([])
   const navigate = useNavigate()
-
+  
+  const API = "https://fullstack-crud-auth.onrender.com"
   useEffect(() => {
     const main = async () => {
-      let res = await fetch("http://127.0.0.1:5000/getAllData")
+      let res = await fetch(`${API}/getAllData`)
       let data = await res.json()
       setStudent(data)
     }

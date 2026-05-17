@@ -7,12 +7,14 @@ const Login = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
+  const API = "https://fullstack-crud-auth.onrender.com"
+
   const [user_name, setuserName] = useState('username_1')
   const [password, setPassword] = useState('password')
 
   let login = async (e) => {
     e.preventDefault()
-    let res = await fetch("http://127.0.0.1:5000/login", {
+    let res = await fetch(`${API}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user_name, password })

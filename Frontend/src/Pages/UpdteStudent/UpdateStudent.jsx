@@ -6,7 +6,8 @@ import { StaticRouterProvider, Navigate, useParams, useNavigate } from 'react-ro
 const UpdateStudent = () => {
   const navigate = useNavigate()
   const { id } = useParams();
-
+  
+  const API = "https://fullstack-crud-auth.onrender.com"
 
   const [name, setName] = useState("")
   const [city, setCity] = useState("")
@@ -14,7 +15,7 @@ const UpdateStudent = () => {
   // fetch specific Studnet based on user click. 
   useEffect(() => {
     const main = async () => {
-      let res = await fetch(`http://127.0.0.1:5000/getStudent/${id}`)
+      let res = await fetch(`${API}/getStudent/${id}`)
       let data = await res.json()
       setName(data["name"])
       setCity(data["city"])
@@ -25,7 +26,7 @@ const UpdateStudent = () => {
   //  Update Studen.
     let   update = async (e) => {
       e.preventDefault()
-    let res = await fetch(" http://127.0.0.1:5000/updateStudent", {
+    let res = await fetch(`${API}/updateStudent`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
